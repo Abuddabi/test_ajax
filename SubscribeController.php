@@ -32,20 +32,12 @@ class SubscribeController
       if (!trim($msg)) $errors[]   = "Введите сообщение";
       if (!trim($phone)) $errors[] = "Введите телефон";
 
-      $response = '{';
       if (!empty($errors)) {
         $errors += ['status' => 'error'];
-        $response2 = json_encode($errors);
-
-
-        $response .= '"status":"error"';
-        foreach ($errors as $errors_item) {
-          $response .= ','.$errors_item;
-        }
+        $response = json_encode($errors);
       }
-      $response .= '}';
 
-      echo $response2;
+      echo $response;
  
       // Mail::to('Admin@gmail.com')->send(new SubscribeEmail($name, $email, $msg, $phone));
     }
