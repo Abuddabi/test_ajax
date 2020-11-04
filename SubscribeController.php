@@ -25,7 +25,7 @@ class SubscribeController
 
       if (!empty($errors)) {
         $errors += ['status' => 'error'];
-        $response = json_encode($errors);
+        $response = $errors;
       }
       else {
         //здесь код отправки сообщения
@@ -34,6 +34,7 @@ class SubscribeController
         if ($send_result) $response = ['status' => 'success'];
       }
 
+      $response = json_encode($response);
       echo $response;
  
       // Mail::to('Admin@gmail.com')->send(new SubscribeEmail($name, $email, $msg, $phone));

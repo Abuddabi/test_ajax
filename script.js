@@ -34,11 +34,12 @@ $(document).ready(function(){
           }
           alertContent += '</ul>';
 
-          alertEl.html(alertContent);
         }
         else if (data.status == "success") {
           alertContent += '<p>Сообщение отправлено!</p>';
         }
+
+        alertEl.html(alertContent);
       }
 
     });
