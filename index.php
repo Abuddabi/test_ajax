@@ -1,11 +1,5 @@
 <?php 
-	function out($arg, $method = 1)
-	{
-		echo "<pre>";
-		if ($method === 1) var_dump($arg);
-		else print_r($arg);
-		exit;
-	}
+	include('helper.php');
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +44,7 @@
 		</div>
 		<button type="contactform" id="test_id" class="btn btn-succes">Submit</button>
 	</form>
-	
+
 	<script
 		src="https://code.jquery.com/jquery-3.5.1.min.js"
 		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="

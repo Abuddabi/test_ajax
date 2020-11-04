@@ -1,14 +1,5 @@
 <?php
-ini_set('display_errors', '1');
-error_reporting(E_ALL);
-
-function out($arg, $method = 1)
-{
-  echo "<pre>";
-  if ($method === 1) var_dump($arg);
-  else print_r($arg);
-  exit;
-}
+include('helper.php');
 
 class SubscribeController
 {
@@ -35,6 +26,12 @@ class SubscribeController
       if (!empty($errors)) {
         $errors += ['status' => 'error'];
         $response = json_encode($errors);
+      }
+      else {
+        //здесь код отправки сообщения
+        $send_result = true; //результат отправки собщения
+
+        if ($send_result) $response = ['status' => 'success'];
       }
 
       echo $response;

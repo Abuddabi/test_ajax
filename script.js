@@ -22,10 +22,10 @@ $(document).ready(function(){
       success: function (data) {
         data = JSON.parse(data);
 
-        if (data.status == "error") {
-          let alertEl = $('.alert-danger');
-          let alertContent = '';
+        let alertEl = $('.alert-danger');
+        let alertContent = '';
 
+        if (data.status == "error") {
           alertContent += '<p>Ошибка</p>';
           alertContent += '<ul>';
           for ( let i in data) {
@@ -36,8 +36,11 @@ $(document).ready(function(){
 
           alertEl.html(alertContent);
         }
+        else if (data.status == "success") {
+          alertContent += '<p>Сообщение отправлено!</p>';
+        }
       }
-      
+
     });
   });  
 })
